@@ -24,10 +24,8 @@ function getHumanChoice() {
     } else if (sign.toLowerCase() === "paper") {
         console.log("Crispy.")
     } else {console.log("That's not an option...")}  
-    return sign.toLowerCase()
+    return sign.toLowerCase();
 }
-
-
 
 function playRound(humanChoice,computerChoice) {
     if (humanChoice === 'rock' && computerChoice === 'scissors') {
@@ -75,11 +73,26 @@ function playRound(humanChoice,computerChoice) {
 
 function playGame() {
     playRound(humanSelection,computerSelection);
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice(3);
     playRound(humanSelection,computerSelection);
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice(3);
     playRound(humanSelection,computerSelection);
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice(3);
     playRound(humanSelection,computerSelection);
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice(3);
     playRound(humanSelection,computerSelection);
 
+    if (humanScore > computerScore) {
+        console.log("You Win! Bask in Glory!!!")
+    }
+    else if (humanScore === computerScore) {
+        console.log("Awkward...")
+    }
+        else(console.log("You Lose! Try Again."))
 }
 
 playGame();
