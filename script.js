@@ -1,19 +1,16 @@
-// Computer randomly picks a one of the options
-// Player manually types in their option.
-// program needs to know which combinations win or lose
-// Program needs to keep track of wins
+// compare computer output to human output
 const hands = [ "rock", "paper", "scissors" ];
 
-const humanScore = 0
-const computerScore = 0
+let humanScore = 0
+let computerScore = 0
 
-
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice(3);
 
 function getComputerChoice(max) {
     const randomHand = Math.floor(Math.random() * max);
     return hands [randomHand];
 }
-
 
 function getHumanChoice() {
     let sign = prompt("Test your luck!")
@@ -27,9 +24,16 @@ function getHumanChoice() {
     } else if (sign.toLowerCase() === "paper") {
         console.log("Crispy.")
     } else {console.log("That's not an option...")}  
+    return sign
 }
 
-getHumanChoice();
+if (humanChoice === 'rock' && computerChoice === 'scissors')
+    console.log("You win! Rock beats scissors!")
+
+
+
+
+
 
 function playRound(humanChoice,computerChoice) {
 
