@@ -27,14 +27,50 @@ function getHumanChoice() {
     return sign
 }
 
-if (humanChoice === 'rock' && computerChoice === 'scissors')
-    console.log("You win! Rock beats scissors!")
-
-
-
-
 
 
 function playRound(humanChoice,computerChoice) {
+    if (humanChoice === 'rock' && computerChoice === 'scissors') {
+        humanScore++; 
+        console.log("You win! Rock beats scissors!");
+            console.log(humanScore,computerScore);}
 
+        else if (humanChoice === 'rock' && computerChoice === 'paper'){
+            computerScore++;
+            console.log("You lose! Paper beats rock!");
+                console.log(humanScore,computerScore);}
+
+        else if (humanChoice === 'rock'  && computerChoice === 'rock'){
+            console.log("Tie! Try again!");
+                console.log(humanScore,computerScore);}
+
+        else if (humanChoice === 'scissors'  && computerChoice === 'paper'){
+            humanScore++
+            console.log("You win! Scissors beats paper!");
+                console.log(humanScore,computerScore);}
+
+        else if (humanChoice === 'scissors'  && computerChoice === 'rock'){
+            computerScore++
+            console.log("You lose! Rock beats scissors!");
+                console.log(humanScore,computerScore);}
+
+        else if (humanChoice === 'scissors'  && computerChoice === 'scissors'){
+            console.log("Tie! Try again!");
+                console.log(humanScore,computerScore)}
+
+        else if (humanChoice === 'paper'  && computerChoice === 'rock'){
+            humanScore++
+            console.log("You win! Paper beats rock!");
+                console.log(humanScore,computerScore)}
+
+        else if (humanChoice === 'paper'  && computerChoice === 'scissors'){
+            computerScore++
+            console.log("You lose! Scissors beats paper!");
+                console.log(humanScore,computerScore)}
+
+        else if (humanChoice === 'paper'  && computerChoice === 'paper'){
+            console.log("Tie! Try again!");
+                console.log(humanScore,computerScore)}
 }
+
+playRound();
