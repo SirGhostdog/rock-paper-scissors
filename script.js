@@ -4,8 +4,8 @@ const hands = [ "rock", "paper", "scissors" ];
 let humanScore = 0
 let computerScore = 0
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice(3);
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice(3);
 
 function getComputerChoice(max) {
     const randomHand = Math.floor(Math.random() * max);
@@ -24,7 +24,7 @@ function getHumanChoice() {
     } else if (sign.toLowerCase() === "paper") {
         console.log("Crispy.")
     } else {console.log("That's not an option...")}  
-    return sign
+    return sign.toLowerCase()
 }
 
 
@@ -73,4 +73,13 @@ function playRound(humanChoice,computerChoice) {
                 console.log(humanScore,computerScore)}
 }
 
-playRound();
+function playGame() {
+    playRound(humanSelection,computerSelection);
+    playRound(humanSelection,computerSelection);
+    playRound(humanSelection,computerSelection);
+    playRound(humanSelection,computerSelection);
+    playRound(humanSelection,computerSelection);
+
+}
+
+playGame();
