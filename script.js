@@ -6,7 +6,6 @@ const scissorsButton = document.querySelector("#scissorsbutton")
 
 let humanScore = 0
 let computerScore = 0
-let buttonClicks = 0
 
 
 
@@ -62,36 +61,44 @@ function playRound(humanChoice,computerChoice) {
              }
 }
 
-
-rockButton.addEventListener ("click", () => {
-    let computerSelection = getComputerChoice(3);
-    playRound("rock",computerSelection)
-    displayScore()
-    buttonClicks++
-})
-paperButton.addEventListener ("click", () => {
-    let computerSelection = getComputerChoice(3); 
-    playRound("paper",computerSelection)
-    displayScore() 
-    buttonClicks++
-})
-scissorsButton.addEventListener ("click", () => {
-    let computerSelection = getComputerChoice(3);
-    playRound("scissors",computerSelection)
-    displayScore()
-    buttonClicks++
-})
-
 const currentScore = document.createElement("p");
 
 function displayScore() {
-let newScore = currentScore.textContent = (humanScore + " : " + computerScore);
+let newScore = currentScore.textContent = ("You: " + humanScore + " | " + "Computer: " + computerScore);
 results.appendChild(currentScore);  
 }
 
+rockButton.addEventListener ("click", () => {
+    let computerSelection = getComputerChoice(3);
+    playRound("rock",computerSelection);
+    displayScore();
+    scoreCheck();
+})
+paperButton.addEventListener ("click", () => {
+    let computerSelection = getComputerChoice(3); 
+    playRound("paper",computerSelection);
+    displayScore();
+    scoreCheck();
+})
+scissorsButton.addEventListener ("click", () => {
+    let computerSelection = getComputerChoice(3);
+    playRound("scissors",computerSelection);
+    displayScore();
+    scoreCheck();
+})
+
+
+
 function scoreCheck() {
-    if (buttonClicks === 5){
-        alert("Game Over!")
+    if (humanScore === 5) {
+        alert ("You Win! Play another round!");
+        humanScore = 0;
+        computerScore = 0;
+    }
+    else if (computerScore === 5) {
+        alert("Game Over! You Lose!");
+        humanScore = 0;
+        computerScore = 0;
     }
 }
-scoreCheck();
+
